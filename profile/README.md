@@ -74,6 +74,12 @@ Open Mapple is an independent research project, not affiliated with or endorsed 
 realme, Xiaomi or Google. Apple, iOS, iPhone and Metal are trademarks of Apple Inc., registered in the U.S. and other
 countries. Other names are trademarks of their respective owners.
 
+## Use of AI
+
+Open Mapple is developed by one person, which would not be possible without help, so AI tools were used for
+research, code and documentation. Every change was reviewed by a person before it landed, and AI filler was removed
+wherever we found it. If something still reads that way, please open an issue.
+
 <div align="center">
 
 Maintained by [Pritish Joshi](https://pritish.eu) ([@DrtSinX98](https://github.com/DrtSinX98))
