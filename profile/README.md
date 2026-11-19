@@ -8,26 +8,26 @@
 
 </div>
 
-Open Mapple runs Apple's open-source XNU kernel directly on Android phones, with drivers written for their real
-hardware: GPU, display, touch, Wi-Fi, Bluetooth, sound and sensors. On top of it runs an unmodified iOS user space.
-No iOS binary is patched, and no code is injected to fake what's missing. It builds like a custom ROM, and iOS comes
-from Apple to your own Mac, never from us.
+Open Mapple runs Apple's open-source XNU kernel on Android phones, with our own patches and drivers for their real
+hardware: GPU, display, touch, Wi-Fi, Bluetooth, sound and sensors. iOS comes from Apple to your own computer, and we
+never patch its binaries. It builds like a custom ROM.
 
-> **Release 1 is coming, not yet available.** It targets the realme 8i with iOS 16.7.16.
+> **Release 1 is out** (18 November 2026): iOS 16.7.16 on the realme 8i.
+> [Download](https://github.com/open-mapple/mapple_releases/releases/tag/spaced-1.0) · [Install guide](https://open-mapple.pages.dev/install)
 
 ## Why it's different
 
 |  |  |
 | --- | --- |
 | **Fixed in the kernel** | Real drivers for the phone's hardware, so iOS sees devices it already understands. |
-| **iOS untouched** | No patched binaries, no injection. Tweaks only if you switch them on. |
+| **iOS binaries unpatched** | Apple's binaries as Apple ships them. Our drivers, and a few small fixes, most off by default. |
 | **Built like a ROM** | One manifest, one build command, reproducible releases. Nothing of Apple's in our repos. |
 
 ## Devices
 
 | Phone | SoC | Status |
 | --- | --- | --- |
-| realme 8i (`spaced`) | MediaTek Helio G96 (MT6781) | Supported, release 1 coming |
+| realme 8i (`spaced`) | MediaTek Helio G96 (MT6781) | Supported: release 1, iOS 16.7.16 |
 | Redmi Note 10 Pro (`sweet`) | Qualcomm SM7150 | Build only, maintainer wanted |
 | Pixel 4a (`sunfish`) | Qualcomm SM7150 | Build only, maintainer wanted |
 
@@ -44,18 +44,19 @@ What works on each phone is on its [device page](https://open-mapple.pages.dev/d
 | Area | Repositories |
 | --- | --- |
 | Start here | [`manifest`](https://github.com/open-mapple/manifest): the repo manifest that checks out everything below |
-| Kernel | `xnu_kernel_mediatek_common`, `xnu_kernel_mediatek_mt6781`, `xnu_kernel_qcom_common`, `xnu_kernel_qcom_sm7150` |
-| Devices | `xnu_device_realme_spaced`, `xnu_device_xiaomi_sweet`, `xnu_device_google_sunfish` |
-| Boot | `mapple_loader`, `mapple_splitboot` |
-| Graphics | `mapple_gpu_mali`, `mapple_gpu_adreno` |
-| User space | `mapple_userland`, `mapple_manager` |
-| Build and release | `mapple_build`, `mapple_vendor`, `mapple_releases` |
-| Porting | `mapple_device_setup_scripts` |
-| Website | `mapple_website` |
+| Kernel | [`xnu_kernel_mediatek_common`](https://github.com/open-mapple/xnu_kernel_mediatek_common), [`xnu_kernel_mediatek_mt6781`](https://github.com/open-mapple/xnu_kernel_mediatek_mt6781), [`xnu_kernel_qcom_common`](https://github.com/open-mapple/xnu_kernel_qcom_common) |
+| Devices | [`xnu_device_realme_spaced`](https://github.com/open-mapple/xnu_device_realme_spaced), [`xnu_device_xiaomi_sweet`](https://github.com/open-mapple/xnu_device_xiaomi_sweet), [`xnu_device_google_sunfish`](https://github.com/open-mapple/xnu_device_google_sunfish) |
+| Boot | [`mapple_loader`](https://github.com/open-mapple/mapple_loader), [`mapple_splitboot`](https://github.com/open-mapple/mapple_splitboot) |
+| Graphics | [`mapple_gpu_mali`](https://github.com/open-mapple/mapple_gpu_mali), [`mapple_gpu_adreno`](https://github.com/open-mapple/mapple_gpu_adreno) |
+| User space | [`mapple_userland`](https://github.com/open-mapple/mapple_userland) |
+| Build and release | [`mapple_build`](https://github.com/open-mapple/mapple_build), [`mapple_vendor`](https://github.com/open-mapple/mapple_vendor), [`mapple_releases`](https://github.com/open-mapple/mapple_releases) |
+
+Mapple (the control centre) and the release assembler are closed source.
 
 ## Get started
 
-- **Install** a release on a supported phone: [install guide](https://open-mapple.pages.dev/install).
+- **Install** a release on a supported phone: [install guide](https://open-mapple.pages.dev/install). The release is
+  assembled from your own iOS download on Windows, Linux or macOS.
 - **Build** from source on a Mac with `envsetup`, `lunch` and `mka`: [build guide](https://open-mapple.pages.dev/build).
 - **Port** a new phone: [porting guide](https://open-mapple.pages.dev/docs/guides/porting).
 
